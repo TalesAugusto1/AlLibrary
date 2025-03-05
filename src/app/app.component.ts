@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterOutlet, Router } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
   greetingMessage = "";
 
+  constructor(private router: Router) {}
+
+  goToLibrary(): void {
+    this.router.navigate(["/my-library"]);
+  }
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
 

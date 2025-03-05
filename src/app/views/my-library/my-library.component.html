@@ -1,0 +1,9 @@
+<div class="library-container">
+  <h1>My Library</h1>
+  <ul>
+    <li *ngFor="let file of files">
+      <span>{{ file.name }}</span>
+      <button (click)="openFile(file.path)">Open</button>
+    </li>
+  </ul>
+</div>
